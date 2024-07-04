@@ -10,11 +10,13 @@ function App() {
     console.log(data);
   };
   return (
-    <div className='container font-karla py-5 px-8 mx-auto  max-w-lg rounded-xl bg-white *:border'>
+    <div className='container font-karla py-5 px-8 mx-auto  max-w-lg rounded-xl bg-white '>
       <div>
         <h1 className='text-xl font-bold text-left mb-3'>Contact Us</h1>{" "}
-        <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
-          <div className='flex '>
+        <form
+          className='space-y-3'
+          onSubmit={handleSubmit(onSubmit)}>
+          <div className='flex gap-4'>
             <Input
               type='text'
               register={register}
@@ -34,16 +36,38 @@ function App() {
             />
           </div>
           {/* fix the radio components --- think about extracting the the outer elements of radio component in here */}
-         <Radio     />
-          <button type='submit'>submit</button>
+          <Radio />
+          <div className='flex flex-col'>
+            <label
+              className='text-sm text-left mb-2'
+              htmlFor='message'>
+              Message
+            </label>
+            <textarea
+              name='message'
+              className='border border-slate-400  rounded-lg   text-sm px-3 py-2'
+              id='message'
+              cols={"3"}
+              rows={"3"}></textarea>
+          </div>
+          <div className='flex '>
+            <input
+              className='mr-2 w-4 border-none'
+              id='consent'
+              type='checkbox'
+            />
+            <label
+              className='text-sm'
+              htmlFor='consent'>
+              I consent to being contacted by the team <span>*</span>
+            </label>
+          </div>
+          <button
+            className='bg-primary-green600 w-full text-white rounded-lg px-3 py-2'
+            type='submit'>
+            Submit
+          </button>
         </form>
-      </div>
-      <div className='attribution'>
-        Challenge by{" "}
-        <a href='https://www.frontendmentor.io?ref=challenge'>
-          Frontend Mentor
-        </a>
-        . Coded by <a href='https://github.com/Stbs0'></a>.
       </div>
     </div>
   );
